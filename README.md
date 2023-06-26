@@ -26,12 +26,12 @@ pip install git+https://github.com/shuo1118/toy_project.git
 ```bash
 my_package <command> <path_to_json_file>
 ```
-其中，<command>可以是sum或multiply，<path_to_json_file>是JSON文件的路径。
+其中，<command>可以是sum或multiply，<path_to_json_file>是JSON文件的路径。例如：
 
-例如：
 ```bash
 my_package sum numbers.json
 ```
+
 在这个例子中，包将返回数字1和2的和，即3。
 
 如果你使用multiply命令：
