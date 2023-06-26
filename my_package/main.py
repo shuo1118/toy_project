@@ -1,6 +1,6 @@
 import argparse
-from module1.module1 import sum_numbers
-from module2.module2 import multiply_numbers
+from sum.sum import sum_numbers
+from multiply.multiply import multiply_numbers
 
 def main():
     parser = argparse.ArgumentParser(prog='my_package')
