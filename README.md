@@ -32,12 +32,10 @@ my_package <command> <path_to_json_file>
 my_package sum numbers.json
 ```
 
-在这个例子中，包将返回数字1和2的和，即3。
+在这个例子中，将返回数字1和2的和，即3。
 
 如果你使用multiply命令：
 ```bash
 my_package multiply numbers.json
 ```
-包将返回数字4和5的积，即20。
-
-注意：在调用包时，必须指定一个子命令（sum或multiply），否则程序不会运行。
+将返回数字4和5的积，即20。
