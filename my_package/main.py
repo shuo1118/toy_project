@@ -1,4 +1,5 @@
 import argparse
+import json
 from my_package.sum.sum import sum_numbers
 from my_package.multiply.multiply import multiply_numbers
 
@@ -8,19 +9,32 @@ def main():
 
     # Subcommand 'sum'
     sum_parser = subparsers.add_parser('sum')                                         # 定义一个名为'sum'的子命令解析器sum_parser
-    sum_parser.add_argument('numbers', nargs='+', type=int)                           # 调用sum_parser.add_argument方法，为'sum'子命令添加一个参数规则。使用'numbers'作为参数名，并指定nargs='+'表示可以接受一个或多个参数值，类型为整数（type=int）。
-    sum_parser.set_defaults(func=sum_numbers)                                         # 调用sum_parser.set_defaults方法，将func属性设置为sum_numbers函数。当使用'sum'子命令时，程序会调用sum_numbers函数来处理该子命令。
+    sum_parser.add_argument('json_file', type=str, help='Path to the JSON file')      # 调用sum_parser.add_argument方法，为'sum'子命令添加一个参数规则。
+    sum_parser.set_defaults(func=sum_numbers_func)                                    # 调用sum_parser.set_defaults方法，将func属性设置为sum_numbers函数。
 
     # Subcommand 'multiply'
     multiply_parser = subparsers.add_parser('multiply')
-    multiply_parser.add_argument('numbers', nargs='+', type=int)
-    multiply_parser.set_defaults(func=multiply_numbers)
+    multiply_parser.add_argument('json_file', type=str, help='Path to the JSON file')
+    multiply_parser.set_defaults(func=multiply_numbers_func)
 
     args = parser.parse_args()
     if hasattr(args, 'func'):
-        result = args.func(args.numbers)
+        result = args.func(args.json_file)
         print(result)
+
+def sum_numbers_func(json_file):
+    with open(json_file, 'r') as f:
+        data = json.load(f)
+    numbers = data['number']['sum_number']
+    result = sum_numbers(numbers)
+    print(result)
+
+def multiply_numbers_func(json_file):
+    with open(json_file, 'r') as f:
+        data = json.load(f)
+    numbers = data['number']['multiply_number']
+    result = multiply_numbers(numbers)
+    print(result)
 
 if __name__ == '__main__':
     main()
-
