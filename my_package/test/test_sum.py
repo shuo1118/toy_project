@@ -1,5 +1,5 @@
 import unittest
-from my_package.sum import sum_numbers
+from my_package.sum.sum import sum_numbers
 
 class TestSum(unittest.TestCase):
     def test_sum_numbers(self):
