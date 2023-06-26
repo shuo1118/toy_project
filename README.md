@@ -8,22 +8,6 @@ my_package是一个Python包，它能够执行两种基本的数学操作：相�
 pip install git+https://github.com/shuo1118/toy_project.git
 ```
 
-## 结构
-以下是该项目的目录结构：
-
-```plaintext
-setup.py
-my_package/
-    __init__.py
-    main.py
-    sum/
-        __init__.py
-        sum.py
-    multiply/
-        __init__.py
-        multiply.py
-```
-
 ## 如何使用
 首先，你需要一个包含数字的JSON文件。以下是一个例子：
 
