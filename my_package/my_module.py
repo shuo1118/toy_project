@@ -1,8 +1,10 @@
+import subprocess
+
 def sum_numbers(numbers):
-    return sum(numbers)
+    result = subprocess.check_output(["python", "sum.py"] + [str(num) for num in numbers])
+    return int(result)
 
 def multiply_numbers(numbers):
-    result = 1
-    for num in numbers:
-        result *= num
-    return result
+    result = subprocess.check_output(["python", "multiply.py"] + [str(num) for num in numbers])
+    return int(result)
+
