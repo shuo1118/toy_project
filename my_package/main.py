@@ -1,6 +1,6 @@
 import argparse
-from sum.sum import sum_numbers
-from multiply.multiply import multiply_numbers
+from my_package.sum.sum import sum_numbers
+from my_package.multiply.multiply import multiply_numbers
 
 def main():
     parser = argparse.ArgumentParser(prog='my_package')
@@ -23,3 +23,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+
