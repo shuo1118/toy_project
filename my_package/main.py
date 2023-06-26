@@ -3,6 +3,20 @@ import json
 from my_package.sum.sum import sum_numbers
 from my_package.multiply.multiply import multiply_numbers
 
+def sum_numbers_func(json_file):
+    with open(json_file, 'r') as f:
+        data = json.load(f)
+    numbers = data['number']['sum_number']
+    result = sum_numbers(numbers)
+    return result
+
+def multiply_numbers_func(json_file):
+    with open(json_file, 'r') as f:
+        data = json.load(f)
+    numbers = data['number']['multiply_number']
+    result = multiply_numbers(numbers)
+    return result
+
 def main():
     parser = argparse.ArgumentParser(prog='my_package')                               # 创建一个ArgumentParser对象，命名为parser，并指定了一个程序名称'my_package'
     subparsers = parser.add_subparsers(title='subcommands', dest='subcommand')        # 创建一个子命令解析器（subparsers），并设置一个标题'subcommands'和一个目标属性'subcommand'。
@@ -21,20 +35,6 @@ def main():
     if hasattr(args, 'func'):
         result = args.func(args.json_file)
         print(result)
-
-def sum_numbers_func(json_file):
-    with open(json_file, 'r') as f:
-        data = json.load(f)
-    numbers = data['number']['sum_number']
-    result = sum_numbers(numbers)
-    print(result)
-
-def multiply_numbers_func(json_file):
-    with open(json_file, 'r') as f:
-        data = json.load(f)
-    numbers = data['number']['multiply_number']
-    result = multiply_numbers(numbers)
-    print(result)
 
 if __name__ == '__main__':
     main()
